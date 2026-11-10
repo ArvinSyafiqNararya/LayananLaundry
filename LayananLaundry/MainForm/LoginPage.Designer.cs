@@ -41,7 +41,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Georgia", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(113, 9);
+            label1.Location = new Point(119, 9);
             label1.Name = "label1";
             label1.Size = new Size(73, 29);
             label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(3, 73);
+            label3.Location = new Point(10, 73);
             label3.Name = "label3";
             label3.Size = new Size(83, 20);
             label3.TabIndex = 3;
@@ -59,16 +59,16 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(3, 96);
+            textBox2.Location = new Point(4, 96);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(288, 23);
+            textBox2.Size = new Size(294, 23);
             textBox2.TabIndex = 4;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(3, 147);
+            label4.Location = new Point(12, 147);
             label4.Name = "label4";
             label4.Size = new Size(78, 20);
             label4.TabIndex = 6;
@@ -76,9 +76,9 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(3, 179);
+            textBox1.Location = new Point(4, 181);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(288, 23);
+            textBox1.Size = new Size(294, 23);
             textBox1.TabIndex = 7;
             textBox1.UseSystemPasswordChar = true;
             // 

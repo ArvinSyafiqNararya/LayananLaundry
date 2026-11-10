@@ -9,7 +9,7 @@ namespace LayananLaundry
     {
         public static SqlConnection GetConnection()
         {
-            string connectionString = "server = localhost ; database = LayananLaundry;Trusted_Connection = true;TrustServerCertificate = true;";
+            string connectionString = "server = localhost\\SQLEXPRESS ; database = LayananLaundry;Trusted_Connection = true;TrustServerCertificate = true;";
             return new SqlConnection(connectionString);
         }
     }
