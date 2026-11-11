@@ -100,7 +100,7 @@
             // button5
             // 
             button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(3, 274);
+            button5.Location = new Point(3, 303);
             button5.Name = "button5";
             button5.Size = new Size(170, 48);
             button5.TabIndex = 5;
@@ -110,7 +110,7 @@
             // button4
             // 
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(3, 220);
+            button4.Location = new Point(3, 240);
             button4.Name = "button4";
             button4.Size = new Size(170, 48);
             button4.TabIndex = 4;
@@ -120,7 +120,7 @@
             // button3
             // 
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(3, 166);
+            button3.Location = new Point(3, 176);
             button3.Name = "button3";
             button3.Size = new Size(170, 48);
             button3.TabIndex = 3;
@@ -131,7 +131,7 @@
             // 
             button2.FlatStyle = FlatStyle.Flat;
             button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(3, 112);
+            button2.Location = new Point(3, 118);
             button2.Name = "button2";
             button2.Size = new Size(170, 48);
             button2.TabIndex = 2;
@@ -153,11 +153,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Georgia", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(22, 9);
+            label1.Font = new Font("Georgia", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.AliceBlue;
+            label1.Location = new Point(13, 8);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(137, 23);
+            label1.Size = new Size(152, 25);
             label1.TabIndex = 0;
             label1.Text = "MY LAUNDRY";
             // 
