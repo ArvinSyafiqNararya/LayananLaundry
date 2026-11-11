@@ -85,7 +85,7 @@
             // 
             // button7
             // 
-            button7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button7.Anchor = AnchorStyles.Bottom;
             button7.BackColor = Color.Red;
             button7.FlatStyle = FlatStyle.Flat;
             button7.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);

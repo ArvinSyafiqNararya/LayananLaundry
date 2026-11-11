@@ -24,7 +24,8 @@ CREATE TABLE pelanggan
 id_pelanggan INT PRIMARY KEY IDENTITY(1,1),
 nama NVARCHAR(100) NOT NULL,
 no_hp NVARCHAR(15) NOT NULL UNIQUE,
-alamat NVARCHAR(255) NULL
+alamat NVARCHAR(255) NULL,
+status_aktif BIT NOT NULL DEFAULT 1
 );
 END
 GO
@@ -67,4 +68,4 @@ subtotal DECIMAL(12,2) NOT NULL
 FOREIGN KEY (id_transaksi) REFERENCES dbo.transaksi(id_transaksi),
 FOREIGN KEY (id_layanan) REFERENCES dbo.layanan(id_layanan)
 );
-END	
+END
