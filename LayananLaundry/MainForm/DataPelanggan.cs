@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using LayananLaundry.PopUpForm;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -140,23 +141,23 @@ namespace LayananLaundry.MainForm
 
         private void button8_Click(object sender, EventArgs e)
         {
-            if(idPelanggan == 0)
+            if (idPelanggan == 0)
             {
                 MessageBox.Show("Pilih data terlebih dahulu");
                 return;
             }
 
-            DialogResult dg = MessageBox.Show("Yakin mau hapus data ini?","Confirm",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dg = MessageBox.Show("Yakin mau aktifkan data ini?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dg == DialogResult.No) return;
 
             try
             {
-                using(SqlConnection conn = Connection.GetConnection())
+                using (SqlConnection conn = Connection.GetConnection())
                 {
                     conn.Open();
                     string query = "UPDATE FROM dbo.pelanggan SET status_aktif = 1 WHERE id_pelanggan = @id";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn)) 
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@id", idPelanggan);
                         int result = cmd.ExecuteNonQuery();
@@ -165,8 +166,8 @@ namespace LayananLaundry.MainForm
                             MessageBox.Show("Data berhasil di aktifkan");
                             idPelanggan = 0;
                             DGVPelanggan();
-                            button6.Enabled=false;
-                            button8.Enabled=false;
+                            button6.Enabled = false;
+                            button8.Enabled = false;
 
                         }
                         else
@@ -177,11 +178,19 @@ namespace LayananLaundry.MainForm
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error\n" +ex.Message,"ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            PopUpTambahPelanggan pelanggan = new PopUpTambahPelanggan();
+
+            pelanggan.ShowDialog();
+            DGVPelanggan();
         }
     }
 }

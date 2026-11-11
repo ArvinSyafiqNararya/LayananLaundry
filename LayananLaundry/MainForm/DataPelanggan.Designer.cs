@@ -248,6 +248,7 @@
             button10.TabIndex = 3;
             button10.Text = "Tambah";
             button10.UseVisualStyleBackColor = false;
+            button10.Click += button10_Click;
             // 
             // button9
             // 
