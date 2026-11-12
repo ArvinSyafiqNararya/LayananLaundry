@@ -125,6 +125,7 @@
             button2.TabIndex = 8;
             button2.Text = "Batal";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // PopUpTambahPelanggan
             // 
@@ -140,6 +141,7 @@
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
+            MaximizeBox = false;
             Name = "PopUpTambahPelanggan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tambah Data Pelanggan";

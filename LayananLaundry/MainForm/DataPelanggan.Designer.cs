@@ -262,6 +262,7 @@
             button9.TabIndex = 2;
             button9.Text = "Edit";
             button9.UseVisualStyleBackColor = false;
+            button9.Click += button9_Click;
             // 
             // button8
             // 
