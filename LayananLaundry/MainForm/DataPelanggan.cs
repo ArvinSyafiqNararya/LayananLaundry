@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace LayananLaundry.MainForm
 {
@@ -204,18 +205,58 @@ namespace LayananLaundry.MainForm
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if(idPelanggan == 0)
+            if (idPelanggan == 0)
             {
                 MessageBox.Show("pilih data terlebih dahulu");
                 return;
             }
 
-            PopUpEditPelanggan popUp = new PopUpEditPelanggan(idPelanggan,nama,noHP,alamat,status_aktif);
+            PopUpEditPelanggan popUp = new PopUpEditPelanggan(idPelanggan, nama, noHP, alamat, status_aktif);
 
             popUp.ShowDialog();
-            
-            DGVPelanggan();
 
+            DGVPelanggan();
+            idPelanggan = 0;
+            button6.Enabled = false;
+            button8.Enabled = false;
+            button9.Enabled = false;
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string keyWord = textBox1.Text.Trim();
+
+            try
+            {
+                using(SqlConnection conn = Connection.GetConnection())
+                {
+                    conn.Open();
+
+                    string query = "SELECT * FROM dbo.pelanggan WHERE nama LIKE @key OR no_hp LIKE @key";
+
+                    using(SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        
+                        cmd.Parameters.AddWithValue("@key", "%" + keyWord + "%");
+                        
+                        using(SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Clear();
+                            da.Fill(dt);
+
+                            dataGridView1.DataSource = dt;
+                        }
+                        
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }

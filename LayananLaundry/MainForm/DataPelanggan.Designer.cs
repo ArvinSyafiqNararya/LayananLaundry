@@ -223,6 +223,7 @@
             textBox1.PlaceholderText = "Cari Nama Atau No HP..............................";
             textBox1.Size = new Size(708, 35);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // panel4
             // 
