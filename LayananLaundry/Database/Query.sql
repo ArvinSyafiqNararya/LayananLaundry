@@ -70,3 +70,5 @@ FOREIGN KEY (id_transaksi) REFERENCES dbo.transaksi(id_transaksi),
 FOREIGN KEY (id_layanan) REFERENCES dbo.layanan(id_layanan)
 );
 END
+
+--INSERT INTO users (username,password_hash,role) VALUES('Aldi','$2a$12$W28X0dy/StkFQ0IwO4DZDeIMoFiDG9wC/eKa7LYyJy51DlRJVSHvO','kasir')

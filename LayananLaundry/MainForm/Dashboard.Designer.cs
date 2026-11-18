@@ -88,67 +88,84 @@
             button7.Anchor = AnchorStyles.Bottom;
             button7.BackColor = Color.Red;
             button7.FlatStyle = FlatStyle.Flat;
-            button7.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button7.Font = new Font("Segoe UI", 12F);
             button7.ForeColor = SystemColors.Control;
-            button7.Location = new Point(3, 486);
+            button7.Location = new Point(13, 477);
             button7.Name = "button7";
-            button7.Size = new Size(170, 48);
+            button7.Size = new Size(152, 48);
             button7.TabIndex = 7;
             button7.Text = "Exit";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button5
             // 
+            button5.BackColor = SystemColors.HotTrack;
             button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(3, 303);
+            button5.Font = new Font("Segoe UI", 12F);
+            button5.ForeColor = SystemColors.Control;
+            button5.Location = new Point(13, 303);
             button5.Name = "button5";
-            button5.Size = new Size(170, 48);
+            button5.Size = new Size(152, 48);
             button5.TabIndex = 5;
             button5.Text = "Laporan";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
+            button4.BackColor = SystemColors.HotTrack;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(3, 240);
+            button4.Font = new Font("Segoe UI", 12F);
+            button4.ForeColor = SystemColors.Control;
+            button4.Location = new Point(13, 240);
             button4.Name = "button4";
-            button4.Size = new Size(170, 48);
+            button4.Size = new Size(152, 48);
             button4.TabIndex = 4;
             button4.Text = "Layanan";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
+            button3.BackColor = SystemColors.HotTrack;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(3, 176);
+            button3.Font = new Font("Segoe UI", 12F);
+            button3.ForeColor = SystemColors.Control;
+            button3.Location = new Point(13, 176);
             button3.Name = "button3";
-            button3.Size = new Size(170, 48);
+            button3.Size = new Size(152, 48);
             button3.TabIndex = 3;
             button3.Text = "Pelanggan";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
+            button2.BackColor = SystemColors.HotTrack;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = SystemColors.ActiveCaptionText;
-            button2.Location = new Point(3, 118);
+            button2.Font = new Font("Segoe UI", 12F);
+            button2.ForeColor = SystemColors.Control;
+            button2.Location = new Point(13, 118);
             button2.Name = "button2";
-            button2.Size = new Size(170, 48);
+            button2.Size = new Size(152, 48);
             button2.TabIndex = 2;
             button2.Text = "Transaksi";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
             button1.BackColor = SystemColors.HotTrack;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(3, 58);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.Control;
+            button1.Location = new Point(13, 58);
             button1.Name = "button1";
-            button1.Size = new Size(170, 48);
+            button1.Size = new Size(152, 48);
             button1.TabIndex = 1;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
@@ -360,6 +377,7 @@
             // 
             // timer1
             // 
+            timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
             // Dashboard

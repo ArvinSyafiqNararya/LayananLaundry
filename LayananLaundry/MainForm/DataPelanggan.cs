@@ -229,18 +229,18 @@ namespace LayananLaundry.MainForm
 
             try
             {
-                using(SqlConnection conn = Connection.GetConnection())
+                using (SqlConnection conn = Connection.GetConnection())
                 {
                     conn.Open();
 
                     string query = "SELECT * FROM dbo.pelanggan WHERE nama LIKE @key OR no_hp LIKE @key";
 
-                    using(SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        
+
                         cmd.Parameters.AddWithValue("@key", "%" + keyWord + "%");
-                        
-                        using(SqlDataAdapter da = new SqlDataAdapter(cmd))
+
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
                             dt.Clear();
@@ -248,15 +248,49 @@ namespace LayananLaundry.MainForm
 
                             dataGridView1.DataSource = dt;
                         }
-                        
+
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error" + ex.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Error" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Close();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Transaksi transaksi = new Transaksi();
+            transaksi.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DataLayanan dl = new DataLayanan();
+            dl.Show();
+            this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Session.username = null;
+            Session.role = null;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace LayananLaundry.MainForm
         private void timer1_Tick(object sender, EventArgs e)
         {
             CultureInfo cl = new CultureInfo("id-ID");
-            label3.Text = DateTime.Now.ToString("dddd,dd MMMM yyyy",cl);
+            label3.Text = DateTime.Now.ToString("dddd,dd MMMM yyyy", cl);
             label4.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
@@ -38,21 +38,21 @@ namespace LayananLaundry.MainForm
         {
             try
             {
-                using (SqlConnection conn = Connection.GetConnection()) 
+                using (SqlConnection conn = Connection.GetConnection())
                 {
                     conn.Open();
 
                     string query = "SELECT COUNT(*) FROM dbo.transaksi";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn)) 
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                            int total = Convert.ToInt32(cmd.ExecuteScalar());
-                            label5.Text = total.ToString();
-                        
+                        int total = Convert.ToInt32(cmd.ExecuteScalar());
+                        label5.Text = total.ToString();
+
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -71,9 +71,9 @@ namespace LayananLaundry.MainForm
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                            int total = Convert.ToInt32(cmd.ExecuteScalar());
-                            label6.Text = total.ToString();
-                        
+                        int total = Convert.ToInt32(cmd.ExecuteScalar());
+                        label6.Text = total.ToString();
+
                     }
                 }
             }
@@ -96,9 +96,9 @@ namespace LayananLaundry.MainForm
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                     int total = Convert.ToInt32(cmd.ExecuteScalar());
-                     label7.Text = total.ToString();
-                        
+                        int total = Convert.ToInt32(cmd.ExecuteScalar());
+                        label7.Text = total.ToString();
+
                     }
                 }
             }
@@ -138,12 +138,12 @@ namespace LayananLaundry.MainForm
         {
             try
             {
-                using (SqlConnection conn = Connection.GetConnection()) 
+                using (SqlConnection conn = Connection.GetConnection())
                 {
                     conn.Open();
                     string query = "SELECT TOP 5 t.id_transaksi,t.tanggal_transaksi,p.nama AS nama_pelanggan,t.total_harga,t.status FROM dbo.transaksi t INNER JOIN dbo.pelanggan p ON t.id_pelanggan = p.id_pelanggan ORDER BY t.id_transaksi DESC";
-                    
-                    using(SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
                     {
                         DataTable dt = new DataTable();
                         dt.Clear();
@@ -157,6 +157,39 @@ namespace LayananLaundry.MainForm
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Transaksi transaksi = new Transaksi();
+            transaksi.Show();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataPelanggan dp = new DataPelanggan();
+            dp.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DataLayanan dl = new DataLayanan();
+            dl.Show();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Session.username = null;
+            Session.role = null;
         }
     }
 }

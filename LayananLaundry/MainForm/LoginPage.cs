@@ -20,20 +20,20 @@ namespace LayananLaundry.MainForm
         {
             if (checkBox1.Checked)
             {
-                textBox2.UseSystemPasswordChar = false;
+                textBox1.UseSystemPasswordChar = false;
             }
             else
             {
-                textBox2.UseSystemPasswordChar = true;
+                textBox1.UseSystemPasswordChar = true;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text.Trim();
-            string password = textBox2.Text.Trim();
+            string username = textBox2.Text.Trim();
+            string password = textBox1.Text;
 
-            if(string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Username dan password harus terisi");
                 return;
@@ -43,7 +43,7 @@ namespace LayananLaundry.MainForm
                 using (SqlConnection conn = Connection.GetConnection())
                 {
                     conn.Open();
-                    string query = "SELECT username,password,role FROM dbo.users WHERE username = @u";
+                    string query = "SELECT username,password_hash,role FROM dbo.users WHERE username = @u";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -69,18 +69,25 @@ namespace LayananLaundry.MainForm
                             {
                                 Session.username = username;
                                 Session.role = role;
-                                //open dasboard
+                                Dashboard dashboard = new Dashboard();
+                                dashboard.Show();
+                                this.Hide();
                             }
                         }
                     }
                 }
             }
-            
-            catch(Exception ex)
+
+            catch (Exception ex)
             {
-                MessageBox.Show("Error" + ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

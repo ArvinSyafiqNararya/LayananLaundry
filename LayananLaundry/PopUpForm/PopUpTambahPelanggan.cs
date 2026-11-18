@@ -18,8 +18,10 @@ namespace LayananLaundry.PopUpForm
 
         private void PopUpTambahPelanggan_Load(object sender, EventArgs e)
         {
-
+            
         }
+
+        public int idPelangganBaru { get; private set; }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -57,13 +59,13 @@ namespace LayananLaundry.PopUpForm
                 {
                     conn.Open();
 
-                    string query = "INSERT INTO dbo.pelanggan(nama,no_hp,alamat) VALUES(@n,@np,@a)";
+                    string query = "INSERT INTO dbo.pelanggan(nama,no_hp,alamat) VALUES(@n,@np,@a); SELECT SCOPE_IDENTITY();";
                     string checkQuery = "SELECT COUNT(*) FROM dbo.pelanggan WHERE no_hp = @np";
 
-                    using (SqlCommand cmd = new SqlCommand(checkQuery, conn))
+                    using (SqlCommand CheckCmd = new SqlCommand(checkQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@np", noHp);
-                        int result = Convert.ToInt32(cmd.ExecuteScalar());
+                        CheckCmd.Parameters.AddWithValue("@np", noHp);
+                        int result = Convert.ToInt32(CheckCmd.ExecuteScalar());
                         if (result >= 1)
                         {
                             MessageBox.Show("Data dengan nomor hp ini sudah terdaftar. Silahkan gunakan no HP yang lain", "no HP sudah terdaftar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -77,10 +79,12 @@ namespace LayananLaundry.PopUpForm
                         cmd.Parameters.AddWithValue("@np", noHp);
                         cmd.Parameters.AddWithValue("@a", alamat);
 
-                        int result = cmd.ExecuteNonQuery();
-                        if (result >= 1)
+                        idPelangganBaru = Convert.ToInt32(cmd.ExecuteScalar());
+                        if (idPelangganBaru > 0)
                         {
                             MessageBox.Show("Data Berhasil di tambahkan");
+                            
+                            this.DialogResult = DialogResult.OK;
                             this.Close();
                         }
                         else

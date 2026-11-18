@@ -192,13 +192,51 @@ namespace LayananLaundry.MainForm
 
         private void button9_Click(object sender, EventArgs e)
         {
-            PopUpEditLayanan edit = new PopUpEditLayanan(id_layanan,jenis,satuan,harga,status_aktif);
+            PopUpEditLayanan edit = new PopUpEditLayanan(id_layanan, jenis, satuan, harga, status_aktif);
             edit.ShowDialog();
             DGVLayanan();
             id_layanan = 0;
-            button6.Enabled=false;
+            button6.Enabled = false;
             button8.Enabled = false;
-            button9.Enabled=false;
+            button9.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Session.username = null;
+            Session.role = null;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Transaksi transaksi = new Transaksi();
+            transaksi.Show();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataPelanggan dp = new DataPelanggan();
+            dp.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

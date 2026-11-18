@@ -68,7 +68,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 147);
+            label4.Location = new Point(10, 146);
             label4.Name = "label4";
             label4.Size = new Size(78, 20);
             label4.TabIndex = 6;
@@ -121,6 +121,7 @@
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login Page";
+            Load += LoginPage_Load;
             ResumeLayout(false);
             PerformLayout();
         }
