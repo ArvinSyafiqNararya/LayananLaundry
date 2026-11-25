@@ -70,7 +70,7 @@ Screenshot aplikasi akan ditambahkan di bagian ini.
 
 📦 Download
 
-Aplikasi siap digunakan dapat diunduh melalui bagian Releases pada repository ini.
+https://github.com/ArvinSyafiqNararya/LayananLaundry/releases/tag/v1.0.0
 
 👨‍💻 Developer
 
