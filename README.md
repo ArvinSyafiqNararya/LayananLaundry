@@ -70,7 +70,13 @@ Screenshot aplikasi akan ditambahkan di bagian ini.
 
 📦 Download
 
+My Laundry v1.0.0
+⬇️ Download My Laundry v1.0.0 (ZIP)
 https://github.com/ArvinSyafiqNararya/LayananLaundry/releases/tag/v1.0.0
+Download Source Code (ZIP)
+https://github.com/ArvinSyafiqNararya/LayananLaundry/archive/refs/tags/v1.0.0.zip
+Download Source Code (TAR.GZ)
+https://github.com/ArvinSyafiqNararya/LayananLaundry/archive/refs/tags/v1.0.0.tar.gz
 
 👨‍💻 Developer
 
