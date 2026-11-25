@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            button6 = new Button();
             button7 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -69,6 +70,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.MenuHighlight;
+            panel1.Controls.Add(button6);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button4);
@@ -82,6 +84,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(176, 537);
             panel1.TabIndex = 0;
+            // 
+            // button6
+            // 
+            button6.BackColor = SystemColors.HotTrack;
+            button6.FlatAppearance.BorderColor = Color.White;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button6.ForeColor = SystemColors.Control;
+            button6.Location = new Point(12, 367);
+            button6.Name = "button6";
+            button6.Size = new Size(153, 48);
+            button6.TabIndex = 12;
+            button6.Text = "Laporan";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button7
             // 
@@ -102,20 +119,21 @@
             // 
             button5.BackColor = SystemColors.HotTrack;
             button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI", 12F);
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             button5.ForeColor = SystemColors.Control;
             button5.Location = new Point(13, 303);
             button5.Name = "button5";
             button5.Size = new Size(152, 48);
             button5.TabIndex = 5;
-            button5.Text = "Laporan";
+            button5.Text = "Status Transaksi";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
             button4.BackColor = SystemColors.HotTrack;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 12F);
+            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             button4.ForeColor = SystemColors.Control;
             button4.Location = new Point(13, 240);
             button4.Name = "button4";
@@ -129,7 +147,7 @@
             // 
             button3.BackColor = SystemColors.HotTrack;
             button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 12F);
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             button3.ForeColor = SystemColors.Control;
             button3.Location = new Point(13, 176);
             button3.Name = "button3";
@@ -143,7 +161,7 @@
             // 
             button2.BackColor = SystemColors.HotTrack;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 12F);
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = SystemColors.Control;
             button2.Location = new Point(13, 118);
             button2.Name = "button2";
@@ -157,7 +175,7 @@
             // 
             button1.BackColor = SystemColors.HotTrack;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.Control;
             button1.Location = new Point(13, 58);
             button1.Name = "button1";
@@ -440,5 +458,6 @@
         private Button button3;
         private Button button7;
         private System.Windows.Forms.Timer timer1;
+        private Button button6;
     }
 }

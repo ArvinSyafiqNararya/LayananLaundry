@@ -292,5 +292,24 @@ namespace LayananLaundry.MainForm
             Session.username = null;
             Session.role = null;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            statusTransaksi statusTransaksi = new statusTransaksi();
+            statusTransaksi.Show();
+            this.Close();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Laporan laporan = new Laporan();
+            laporan.Show();
+            this.Close();
+        }
     }
 }

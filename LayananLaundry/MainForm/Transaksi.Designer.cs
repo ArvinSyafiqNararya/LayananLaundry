@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            button13 = new Button();
             button7 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -102,6 +103,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.MenuHighlight;
+            panel1.Controls.Add(button13);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button4);
@@ -116,6 +118,21 @@
             panel1.Size = new Size(176, 661);
             panel1.TabIndex = 2;
             panel1.Paint += panel1_Paint;
+            // 
+            // button13
+            // 
+            button13.BackColor = SystemColors.HotTrack;
+            button13.FlatAppearance.BorderColor = Color.White;
+            button13.FlatStyle = FlatStyle.Flat;
+            button13.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button13.ForeColor = SystemColors.Control;
+            button13.Location = new Point(12, 367);
+            button13.Name = "button13";
+            button13.Size = new Size(153, 48);
+            button13.TabIndex = 10;
+            button13.Text = "Laporan";
+            button13.UseVisualStyleBackColor = false;
+            button13.Click += button13_Click;
             // 
             // button7
             // 
@@ -143,7 +160,7 @@
             button5.Name = "button5";
             button5.Size = new Size(153, 48);
             button5.TabIndex = 5;
-            button5.Text = "Laporan";
+            button5.Text = "Status Transaksi";
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
@@ -810,5 +827,6 @@
         private DataGridViewTextBoxColumn satuan;
         private DataGridViewTextBoxColumn qty;
         private DataGridViewTextBoxColumn subtotal;
+        private Button button13;
     }
 }

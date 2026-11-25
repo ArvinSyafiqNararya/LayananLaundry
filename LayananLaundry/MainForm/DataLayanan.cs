@@ -236,7 +236,48 @@ namespace LayananLaundry.MainForm
 
         private void button5_Click(object sender, EventArgs e)
         {
+            statusTransaksi transaksi = new statusTransaksi();
+            transaksi.Show();
+            this.Close();
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string key = textBox1.Text.Trim();
+
+            try
+            {
+                using (SqlConnection conn = Connection.GetConnection())
+                {
+                    conn.Open();
+
+                    string query = "SELECT * dbo.layanan WHERE jenis LIKE @key";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@key", "%" + key + "%");
+
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Clear();
+                            da.Fill(dt);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("pencarian Error\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Laporan laporan = new Laporan();
+            laporan.Show();
+            this.Close();
         }
     }
 }

@@ -46,6 +46,7 @@ BEGIN
 CREATE TABLE transaksi
 (
 id_transaksi INT PRIMARY KEY IDENTITY(1,1),
+kode_transaksi VARCHAR(30) UNIQUE NOT NULL,
 id_pelanggan INT NOT NULL,
 id_users INT NOT NULL,
 tanggal_Transaksi DATETIME DEFAULT GETDATE(),
@@ -65,10 +66,11 @@ id_transaksi INT NOT NULL,
 id_layanan INT NOT NULL,
 qty DECIMAL(10,2) NOT NULL,
 harga_satuan DECIMAL(12,2) NOT NULL,
-subtotal DECIMAL(12,2) NOT NULL
+subtotal DECIMAL(12,2) NOT NULL,
 FOREIGN KEY (id_transaksi) REFERENCES dbo.transaksi(id_transaksi),
 FOREIGN KEY (id_layanan) REFERENCES dbo.layanan(id_layanan)
 );
 END
 
 --INSERT INTO users (username,password_hash,role) VALUES('Aldi','$2a$12$W28X0dy/StkFQ0IwO4DZDeIMoFiDG9wC/eKa7LYyJy51DlRJVSHvO','kasir')
+SELECT * FROM transaksi;

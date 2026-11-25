@@ -300,7 +300,7 @@ namespace LayananLaundry.MainForm
                         try
                         {
                             string queryUser = "SELECT id_users FROM dbo.users WHERE username = @u";
-                            string queryTransaksi = "INSERT INTO dbo.transaksi(id_pelanggan,id_users,total_harga) VALUES (@p,@u,@t) SELECT CAST(SCOPE_IDENTITY() AS INT)";
+                            string queryTransaksi = "INSERT INTO dbo.transaksi(id_pelanggan,id_users,total_harga,kode_transaksi) VALUES (@p,@u,@t,@k) SELECT CAST(SCOPE_IDENTITY() AS INT)";
                             string queryDetail = "INSERT INTO detail_transaksi(id_transaksi,id_layanan,qty,harga_satuan,subtotal) VALUES(@idT,@l,@qty,@h,@s)";
                             int idUser;
                             int idtransaksiTerbaru;
@@ -318,6 +318,7 @@ namespace LayananLaundry.MainForm
                                 cmdTransaksi.Parameters.AddWithValue("@p", idPelanggan);
                                 cmdTransaksi.Parameters.AddWithValue("@u", idUser);
                                 cmdTransaksi.Parameters.AddWithValue("@t", totalHarga);
+                                cmdTransaksi.Parameters.AddWithValue("@k", textBox1.Text);
 
                                 idtransaksiTerbaru = Convert.ToInt32(cmdTransaksi.ExecuteScalar());
 
@@ -373,12 +374,16 @@ namespace LayananLaundry.MainForm
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            statusTransaksi statusTransaksi = new statusTransaksi();
+            statusTransaksi.Show();
+            this.Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            DataLayanan layanan = new DataLayanan();
+            layanan.Show();
+            this.Close();
 
         }
 
@@ -404,6 +409,13 @@ namespace LayananLaundry.MainForm
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            Laporan laporan = new Laporan();
+            laporan.Show();
+            this.Close();
         }
     }
 }

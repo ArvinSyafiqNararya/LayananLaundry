@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
+            button11 = new Button();
             button7 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -62,6 +63,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.MenuHighlight;
+            panel1.Controls.Add(button11);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button4);
@@ -75,6 +77,21 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(176, 511);
             panel1.TabIndex = 2;
+            // 
+            // button11
+            // 
+            button11.BackColor = SystemColors.HotTrack;
+            button11.FlatAppearance.BorderColor = Color.White;
+            button11.FlatStyle = FlatStyle.Flat;
+            button11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button11.ForeColor = SystemColors.Control;
+            button11.Location = new Point(12, 367);
+            button11.Name = "button11";
+            button11.Size = new Size(153, 48);
+            button11.TabIndex = 16;
+            button11.Text = "Laporan";
+            button11.UseVisualStyleBackColor = false;
+            button11.Click += button11_Click;
             // 
             // button7
             // 
@@ -102,7 +119,7 @@
             button5.Name = "button5";
             button5.Size = new Size(153, 48);
             button5.TabIndex = 14;
-            button5.Text = "Laporan";
+            button5.Text = "Status Transaksi";
             button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
@@ -237,6 +254,7 @@
             textBox1.PlaceholderText = "Cari Data Layanan...";
             textBox1.Size = new Size(708, 37);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // panel4
             // 
@@ -387,5 +405,6 @@
         private Button button4;
         private Button button5;
         private Button button7;
+        private Button button11;
     }
 }
