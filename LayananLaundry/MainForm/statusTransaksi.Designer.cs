@@ -98,6 +98,7 @@
             button7.TabIndex = 8;
             button7.Text = "Exit";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button6
             // 
@@ -112,6 +113,7 @@
             button6.TabIndex = 12;
             button6.Text = "Laporan";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // button5
             // 
@@ -138,6 +140,7 @@
             button4.TabIndex = 4;
             button4.Text = "Layanan";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -151,6 +154,7 @@
             button3.TabIndex = 3;
             button3.Text = "Pelanggan";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -164,6 +168,7 @@
             button2.TabIndex = 2;
             button2.Text = "Transaksi";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -177,6 +182,7 @@
             button1.TabIndex = 1;
             button1.Text = "Dashboard";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label1
             // 

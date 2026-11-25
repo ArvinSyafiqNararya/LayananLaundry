@@ -73,4 +73,5 @@ FOREIGN KEY (id_layanan) REFERENCES dbo.layanan(id_layanan)
 END
 
 --INSERT INTO users (username,password_hash,role) VALUES('Aldi','$2a$12$W28X0dy/StkFQ0IwO4DZDeIMoFiDG9wC/eKa7LYyJy51DlRJVSHvO','kasir')
+--INSERT INTO users (username,password_hash,role) VALUES('admin','$2a$12$6Y0h0vq8czvnrAgVtvJ7HOVicXALM3ot9zI6aNqxuAqoPYfnCocg2','admin')
 SELECT * FROM transaksi;

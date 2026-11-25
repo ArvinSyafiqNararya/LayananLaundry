@@ -26,8 +26,18 @@ namespace LayananLaundry.MainForm
             label4.Text = DateTime.Now.ToString("HH:mm:ss", cl);
         }
 
+        //session
+        void izin()
+        {
+            bool admin = Session.role == "admin";
+            button3.Enabled = admin;
+            button4.Enabled = admin;
+            button5.Enabled = admin;
+        }
+
         private void Transaksi_Load(object sender, EventArgs e)
         {
+            izin();
             timer1.Start();
             Tanggal();
             kasir();
@@ -367,9 +377,9 @@ namespace LayananLaundry.MainForm
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Close();
             Session.username = null;
             Session.role = null;
+            this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -417,5 +427,7 @@ namespace LayananLaundry.MainForm
             laporan.Show();
             this.Close();
         }
+
+        
     }
 }

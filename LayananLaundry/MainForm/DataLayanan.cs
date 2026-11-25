@@ -34,6 +34,7 @@ namespace LayananLaundry.MainForm
 
         private void DataLayanan_Load(object sender, EventArgs e)
         {
+            izin();
             timer1.Start();
             button6.Enabled = false;
             button8.Enabled = false;
@@ -66,6 +67,15 @@ namespace LayananLaundry.MainForm
                     button8.Enabled = true;
                 }
             }
+        }
+
+        //session
+        void izin()
+        {
+            bool admin = Session.role == "admin";
+            button3.Enabled = admin;
+            button4.Enabled = admin;
+            button5.Enabled = admin;
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -210,9 +220,9 @@ namespace LayananLaundry.MainForm
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Close();
             Session.username = null;
             Session.role = null;
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -251,7 +261,7 @@ namespace LayananLaundry.MainForm
                 {
                     conn.Open();
 
-                    string query = "SELECT * dbo.layanan WHERE jenis LIKE @key";
+                    string query = "SELECT * FROM dbo.layanan WHERE jenis LIKE @key";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -262,6 +272,8 @@ namespace LayananLaundry.MainForm
                             DataTable dt = new DataTable();
                             dt.Clear();
                             da.Fill(dt);
+
+                            dataGridView1.DataSource = dt;
                         }
                     }
                 }
@@ -279,5 +291,7 @@ namespace LayananLaundry.MainForm
             laporan.Show();
             this.Close();
         }
+
+        
     }
 }

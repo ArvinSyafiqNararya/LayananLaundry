@@ -35,12 +35,23 @@ namespace LayananLaundry.MainForm
 
         private void DataPelanggan_Load(object sender, EventArgs e)
         {
+            izin();
             timer1.Start();
             DGVPelanggan();
             button6.Enabled = false;
             button8.Enabled = false;
             button9.Enabled = false;
         }
+
+        //session
+        void izin()
+        {
+            bool admin = Session.role == "admin";
+            button3.Enabled = admin;
+            button4.Enabled = admin;
+            button5.Enabled = admin;
+        }
+
 
         void DGVPelanggan()
         {
@@ -288,9 +299,9 @@ namespace LayananLaundry.MainForm
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Close();
             Session.username = null;
             Session.role = null;
+            this.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -310,6 +321,12 @@ namespace LayananLaundry.MainForm
             Laporan laporan = new Laporan();
             laporan.Show();
             this.Close();
+        }
+
+        private void DataPelanggan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Session.username = null;
+            Session.role = null;
         }
     }
 }

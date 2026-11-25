@@ -24,12 +24,22 @@ namespace LayananLaundry.MainForm
             label4.Text = DateTime.Now.ToString("HH:mm:ss", cl);
         }
 
+        //session
+        void izin()
+        {
+            bool admin = Session.role == "admin";
+            button3.Enabled = admin;
+            button4.Enabled = admin;
+            button5.Enabled = admin;
+        }
+
         private void statusTransaksi_Load(object sender, EventArgs e)
         {
+            izin();
             timer1.Start();
             DGV();
             button9.Enabled = false;
-            comboBox1.Items.AddRange(new string[] { "Diterima", "Diproses", "Siap Diambil", "Sudah Diambil"});
+            comboBox1.Items.AddRange(new string[] { "Diterima", "Diproses", "Siap Diambil", "Sudah Diambil" });
         }
 
         void DGV()
@@ -85,7 +95,7 @@ namespace LayananLaundry.MainForm
 
         private void button9_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(textBox1.Text.Trim()) || string.IsNullOrWhiteSpace(textBox2.Text.Trim()) || string.IsNullOrWhiteSpace(textBox3.Text.Trim()) || string.IsNullOrWhiteSpace(textBox4.Text.Trim()) || string.IsNullOrWhiteSpace(textBox5.Text.Trim()) || string.IsNullOrWhiteSpace(comboBox1.Text.Trim()))
+            if (string.IsNullOrWhiteSpace(textBox1.Text.Trim()) || string.IsNullOrWhiteSpace(textBox2.Text.Trim()) || string.IsNullOrWhiteSpace(textBox3.Text.Trim()) || string.IsNullOrWhiteSpace(textBox4.Text.Trim()) || string.IsNullOrWhiteSpace(textBox5.Text.Trim()) || string.IsNullOrWhiteSpace(comboBox1.Text.Trim()))
             {
                 MessageBox.Show("Semua Box Harus Terisi!");
                 return;
@@ -93,19 +103,19 @@ namespace LayananLaundry.MainForm
 
             try
             {
-                using(SqlConnection conn = Connection.GetConnection())
+                using (SqlConnection conn = Connection.GetConnection())
                 {
                     conn.Open();
 
                     string query = "UPDATE transaksi SET status = @s WHERE id_transaksi = @id";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn)) 
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@s", comboBox1.Text);
                         cmd.Parameters.AddWithValue("@id", idTransaksi);
                         int result = cmd.ExecuteNonQuery();
 
-                        if(result >= 1)
+                        if (result >= 1)
                         {
                             MessageBox.Show("Data Berhasil Diubah");
                             DGV();
@@ -121,11 +131,55 @@ namespace LayananLaundry.MainForm
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Terjadi kesalahan saat memperbarui data\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Transaksi transaksi = new Transaksi();
+            transaksi.Show();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DataPelanggan dataPelanggan = new DataPelanggan();
+            dataPelanggan.Show();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DataLayanan dataLayanan = new DataLayanan();
+            dataLayanan.Show();
+            this.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Laporan laporan = new Laporan();
+            laporan.Show();
+            this.Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Session.username = null;
+            Session.role = null;
+            this.Close();
+        }
+
+        
     }
 }

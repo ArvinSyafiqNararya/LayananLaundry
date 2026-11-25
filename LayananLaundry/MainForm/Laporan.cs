@@ -29,6 +29,7 @@ namespace LayananLaundry.MainForm
 
         private void Laporan_Load(object sender, EventArgs e)
         {
+            izin();
             timer1.Start();
             pilihTanggal();
 
@@ -44,6 +45,17 @@ namespace LayananLaundry.MainForm
         {
             dgvLaporan();
             ringkasan();
+        }
+
+
+        //session
+        void izin()
+        {
+            bool admin = Session.role == "admin";
+            button3.Enabled = admin;
+            button4.Enabled = admin;
+            button5.Enabled = admin;
+            button9.Enabled = admin;
         }
 
         private void dgvLaporan()
@@ -98,7 +110,7 @@ namespace LayananLaundry.MainForm
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "dd MMMM yyyy";
 
-            dateTimePicker1.Value = DateTime.Today;
+            dateTimePicker1.Value = DateTime.Today.AddDays(-7);
             dateTimePicker2.Value = DateTime.Today;
 
             CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("id-ID");
@@ -283,5 +295,14 @@ namespace LayananLaundry.MainForm
         {
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Session.username = null;
+            Session.role = null;
+            this.Close();
+        }
+
+        
     }
 }

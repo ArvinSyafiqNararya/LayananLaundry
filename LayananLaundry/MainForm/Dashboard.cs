@@ -25,6 +25,7 @@ namespace LayananLaundry.MainForm
             PendapatanHariIni();
             totalLayanan();
             DGVtransaksi();
+            izin();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -33,6 +34,15 @@ namespace LayananLaundry.MainForm
             label3.Text = DateTime.Now.ToString("dddd,dd MMMM yyyy", cl);
             label4.Text = DateTime.Now.ToString("HH:mm:ss");
         }
+
+        //Session
+            void izin()
+            {
+                bool admin = Session.role == "admin";
+                button3.Enabled = admin;
+                button4.Enabled = admin;
+                button5.Enabled = admin;
+            }
 
         void dataTransaksi()
         {
@@ -187,9 +197,9 @@ namespace LayananLaundry.MainForm
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Close();
             Session.username = null;
             Session.role = null;
+            this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -204,6 +214,12 @@ namespace LayananLaundry.MainForm
             Laporan laporan = new Laporan();
             laporan.Show();
             this.Close();
+        }
+
+        private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Session.username = null;
+            Session.role = null;
         }
     }
 }
