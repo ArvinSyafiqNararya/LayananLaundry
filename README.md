@@ -67,34 +67,46 @@ Jalankan LayananLaundry.exe.
 📸 Screenshot Aplikasi
 
 Login
+
 ![Login](ScreenShots/Login.PNG)
 
 Dashboard
+
 ![Dashboard](ScreenShots/Dashboard.PNG)
 
 Data Pelanggan
+
 ![Data Pelanggan](ScreenShots/Pelanggan.PNG)
 
 Data Layanan
+
 ![Data Layanan](ScreenShots/Data%20Layanan.PNG)
 
 Transaksi
+
 ![Transaksi](ScreenShots/Transaksi.PNG)
 
 Update Status Transaksi
+
 ![Update Status Transaksi](ScreenShots/Update%20status%20transaksi.PNG)
 
 Laporan
+
 ![Laporan](ScreenShots/Laporan.PNG)
 
 📦 Download
 
 My Laundry v1.0.0
 ⬇️ Download My Laundry v1.0.0 (ZIP)
+
 https://github.com/ArvinSyafiqNararya/LayananLaundry/releases/tag/v1.0.0
+
 Download Source Code (ZIP)
+
 https://github.com/ArvinSyafiqNararya/LayananLaundry/archive/refs/tags/v1.0.0.zip
+
 Download Source Code (TAR.GZ)
+
 https://github.com/ArvinSyafiqNararya/LayananLaundry/archive/refs/tags/v1.0.0.tar.gz
 
 👨‍💻 Developer
