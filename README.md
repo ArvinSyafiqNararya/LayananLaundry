@@ -64,9 +64,28 @@ Sesuaikan connection string dengan konfigurasi SQL Server pada komputer.
 
 Jalankan LayananLaundry.exe.
 
-📷 Screenshot Aplikasi
+📸 Screenshot Aplikasi
 
-Screenshot aplikasi akan ditambahkan di bagian ini.
+Login
+![Login](ScreenShots/Login.PNG)
+
+Dashboard
+![Dashboard](ScreenShots/Dashboard.PNG)
+
+Data Pelanggan
+![Data Pelanggan](ScreenShots/Pelanggan.PNG)
+
+Data Layanan
+![Data Layanan](ScreenShots/Data%20Layanan.PNG)
+
+Transaksi
+![Transaksi](ScreenShots/Transaksi.PNG)
+
+Update Status Transaksi
+![Update Status Transaksi](ScreenShots/Update%20status%20transaksi.PNG)
+
+Laporan
+![Laporan](ScreenShots/Laporan.PNG)
 
 📦 Download
 
